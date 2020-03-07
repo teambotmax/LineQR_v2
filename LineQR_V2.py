@@ -39,5 +39,26 @@ def loginWithCert():
         raise Exception("Timeout!!!")
     print("Cert: "+result["result"]["cert"])
     print("AuthToken: "+result["result"]["token"])
+    
+def loginPushNotifSMS():
+    ### INDONESIA REGIONAL ONLY ###
+    header = input("Insert header: ")
+    number = input("Insert your active phone: ")
+    if header not in header_list:
+        raise Exception("Wrong header input")
+    result = json.loads(requests.get("https://api.boteater.us/line_qr_v2?header="+header+"&number="+number).text)
+    print("QR Link: "+result["result"]["qr_link"])
+    print("Login IP: "+result["result"]["login_ip"])
+    print("QR Active For 30 Seconds")
+    result = json.loads(requests.get(result["result"]["callback"]).text)
+    if result["status"] != 200:
+        raise Exception("Timeout!!!")
+    print("Pincode code have send to your number")
+    result = json.loads(requests.get(result["result"]["callback"]).text)
+    if result["status"] != 200:
+        raise Exception("Timeout!!!")
+    print("Cert: "+result["result"]["cert"])
+    print("AuthToken: "+result["result"]["token"])
+    
 
 login()
