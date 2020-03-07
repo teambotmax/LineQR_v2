@@ -1,6 +1,6 @@
 import requests, json
 
-### QR ROTATE LOGIN EXAMPLE ###
+### FROM https://youtube.com ###
 
 token_key= "INSERT TOKEN KEY HERE"
 ## GET API KEY FROM https://api.boteater.us/get_token ###
