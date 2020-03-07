@@ -2,7 +2,7 @@ import requests, json
 
 ### QR ROTATE LOGIN EXAMPLE ###
 
-token_key= ""
+token_key= "INSERT TOKEN KEY HERE"
 ## GET API KEY FROM https://api.boteater.us/get_token ###
 
 header_list= ["android_lite", "chrome", "ios_ipad", "desktopmac", "desktopwin"]
