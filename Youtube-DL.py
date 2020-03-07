@@ -1,5 +1,6 @@
 import requests, json
-token_key = ""
+token_key= "INSERT TOKEN KEY HERE"
+## GET API KEY FROM https://api.boteater.us/get_token ###
 
 def ytSearch(search):
     result = json.loads(requests.get("https://api.boteater.us/ytdl?search="+search+"&auth="+token_key).text)
