@@ -1,6 +1,6 @@
 import requests, json
 
-### FROM https://youtube.com ###
+### FROM https://joox.com ###
 
 token_key= "INSERT TOKEN KEY HERE"
 ## GET API KEY FROM https://api.boteater.us/get_token ###
