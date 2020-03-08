@@ -5,9 +5,12 @@ token_key= "INSERT TOKEN KEY HERE"
 
 header_list= ["android_lite", "chrome", "ios_ipad", "desktopmac", "desktopwin"]
 
-print(header_list)
 
 def login():
+    if token_key == "INSERT TOKEN KEY HERE":
+        print("GET API KEY FIRST FROM: https://api.boteater.us/get_token")
+        raise Exception("Wrong API Key")
+    print(header_list)
     header = input("Insert header: ")
     if header not in header_list:
         raise Exception("Wrong header input")
@@ -27,6 +30,10 @@ def login():
 
 
 def loginWithCert():
+    if token_key == "INSERT TOKEN KEY HERE":
+        print("GET API KEY FIRST FROM: https://api.boteater.us/get_token")
+        raise Exception("Wrong API Key")
+    print(header_list)
     header = input("Insert header: ")
     if header not in header_list:
         raise Exception("Wrong header input")
