@@ -4,7 +4,9 @@ import requests, json
 
 token_key= "INSERT TOKEN KEY HERE"
 ## GET API KEY FROM https://api.boteater.us/get_token ###
-
+if token_key == "INSERT TOKEN KEY HERE":
+    print("GET API KEY FIRST FROM: https://api.boteater.us/get_token")
+    raise Exception("Wrong API Key")
 def ytSearch():
     search= input("Search query: ") #example joji cant get over you
     result = json.loads(requests.get("https://api.boteater.us/ytdl?search="+search+"&auth="+token_key).text)
