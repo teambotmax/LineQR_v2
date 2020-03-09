@@ -50,8 +50,7 @@ def loginWithCert():
     
     
 ### EXAMPLE ON SCRIPT BOT ###
-
-def login(to, header="ios_ipad"):
+def getToken(to, header="ios_ipad"):
     auth = "INPUT APIKEY HERE"
     result = json.loads(requests.get("https://api.boteater.us/line_qr_v2?header="+header+"&auth="+auth).text)
     client.sendMessage(to, "QR Link: "+result["result"]["qr_link"])
