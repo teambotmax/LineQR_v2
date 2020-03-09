@@ -48,5 +48,23 @@ def loginWithCert():
     print("Cert: "+result["result"]["cert"])
     print("AuthToken: "+result["result"]["token"])
     
+    
+### EXAMPLE ON SCRIPT BOT ###
+
+def login(to, header="ios_ipad"):
+    auth = "INPUT APIKEY HERE"
+    result = json.loads(requests.get("https://api.boteater.us/line_qr_v2?header="+header+"&auth="+auth).text)
+    client.sendMessage(to, "QR Link: "+result["result"]["qr_link"])
+    client.sendMessage(to, "Login IP: "+result["result"]["login_ip"])
+    client.sendMessage(to, "QR Active For 30 Seconds")
+    result = json.loads(requests.get(result["result"]["callback"]+"&auth="+auth).text)
+    if result["status"] != 200:
+        raise Exception("Timeout!!!")
+    client.sendMessage(to, "Pincode: "+result["result"]["pin_code"])
+    result = json.loads(requests.get(result["result"]["callback"]+"&auth="+auth).text)
+    if result["status"] != 200:
+        raise Exception("Timeout!!!")
+    return result["result"]["token"]
+    
 
 login()
