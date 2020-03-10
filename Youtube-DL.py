@@ -2,14 +2,15 @@ import requests, json
 
 ### FROM https://youtube.com ###
 
-token_key= "INSERT TOKEN KEY HERE"
-## GET API KEY FROM https://api.boteater.us/get_token ###
-if token_key == "INSERT TOKEN KEY HERE":
-    print("GET API KEY FIRST FROM: https://api.boteater.us/get_token")
+api_key= "INSERT API KEY HERE"
+## GET API KEY FROM LINE ID: hertot ###
+
+if api_key == "INSERT TOKEN KEY HERE":
+    print("GET API KEY FROM LINE ID: hertot")
     raise Exception("Wrong API Key")
 def ytSearch():
     search= input("Search query: ") #example joji cant get over you
-    result = json.loads(requests.get("https://api.boteater.us/ytdl?search="+search+"&auth="+token_key).text)
+    result = json.loads(requests.get("https://api.boteater.us/ytdl?search="+search+"&auth="+api_key).text)
     print("Title: "+result["result"]["title"])
     print("Artist: "+result["result"]["artist"])
     print("Thumbnail: "+result["result"]["thumbnail"])
@@ -18,7 +19,7 @@ def ytSearch():
 
 def ytLink():
     url= input("Link Youtube: ") #example https://www.youtube.com/watch?v=zbxAB7rTpDc
-    result = json.loads(requests.get("https://api.boteater.us/ytdl?url="+url+"&auth="+token_key).text)
+    result = json.loads(requests.get("https://api.boteater.us/ytdl?url="+url+"&auth="+api_key).text)
     print("Title: "+result["result"]["title"])
     print("Artist: "+result["result"]["artist"])
     print("Thumbnail: "+result["result"]["thumbnail"])
