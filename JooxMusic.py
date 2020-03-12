@@ -21,9 +21,8 @@ def search():
     if api_key == "INSERT API KEY HERE":
         print("GET API KEY FROM LINE ID: hertot")
         raise Exception("Wrong API Key")
-    api_link = failOverAPI()
     search = input("Search query: ") #example chainsmokers
-    result = json.loads(requests.get(api_link+"/joox?search="+search+"&auth="+api_key).text)
+    result = json.loads(requests.get(failOverAPI()+"/joox?search="+search+"&auth="+api_key).text)
     for music in result["result"]:
         print("")
         print("Artis: "+music["artist"])
