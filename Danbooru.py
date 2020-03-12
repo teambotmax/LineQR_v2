@@ -19,9 +19,8 @@ def search():
     if api_key == "INSERT API KEY HERE":
         print("GET API KEY FROM LINE ID: hertot")
         raise Exception("Wrong API Key")
-    api_link = failOverAPI()
     page = input("Danboru Page: ") #example page 1 or 2 or 3 or etc
-    result = json.loads(requests.get(api_link+"/danbooru?page="+page+"&auth="+api_key).text)
+    result = json.loads(requests.get(failOverAPI()+"/danbooru?page="+page+"&auth="+api_key).text)
     for img in result["result"]:
         print("Link Image: "+img)
 
