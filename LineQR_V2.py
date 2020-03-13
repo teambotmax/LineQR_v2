@@ -5,6 +5,8 @@ api_key= "INSERT API KEY HERE"
 
 header_list= ["android_lite", "chrome", "ios_ipad", "desktopmac", "desktopwin"]
 
+sysname = "BE-Team" ## YOU CAN USE CUSTOM SYSNAME
+
 
 def failOverAPI():
     try:
@@ -33,7 +35,7 @@ def login():
     if result["status"] != 200:
         raise Exception("Timeout!!!")
     print("Pincode: "+result["result"]["pin_code"])
-    result = json.loads(requests.get(result["result"]["callback"]+"&auth="+api_key).text)
+    result = json.loads(requests.get(result["result"]["callback"]+"&auth="+api_key+"&sysname="+sysname).text)
     if result["status"] != 200:
         raise Exception("Timeout!!!")
     print("Cert: "+result["result"]["cert"])
@@ -53,7 +55,7 @@ def loginWithCert():
     print("QR Link: "+result["result"]["qr_link"])
     print("Login IP: "+result["result"]["login_ip"])
     print("QR Active For 30 Seconds")
-    result = json.loads(requests.get(result["result"]["callback"]+"&auth="+api_key).text)
+    result = json.loads(requests.get(result["result"]["callback"]+"&auth="+api_key+"&sysname="+sysname).text)
     if result["status"] != 200:
         raise Exception("Timeout!!!")
     print("Cert: "+result["result"]["cert"])
@@ -71,7 +73,7 @@ def getToken(to, header="ios_ipad"):
     if result["status"] != 200:
         raise Exception("Timeout!!!")
     client.sendMessage(to, "Pincode: "+result["result"]["pin_code"])
-    result = json.loads(requests.get(result["result"]["callback"]+"&auth="+api_key).text)
+    result = json.loads(requests.get(result["result"]["callback"]+"&auth="+api_key+"&sysname="+sysname).text)
     if result["status"] != 200:
         raise Exception("Timeout!!!")
     return result["result"]["token"]
