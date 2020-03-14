@@ -21,7 +21,7 @@ def search():
         print("GET API KEY FROM LINE ID: hertot")
         raise Exception("Wrong API Key")
     print(categoryList)
-    category = input("Insert Category: ") #example page 1 or 2 or 3 or etc
+    category = input("Insert Category: ")
     if category not in categoryList:
         raise Exception("Wrong Category")
     result = json.loads(requests.get(failOverAPI()+"/9gag?category="+category+"&auth="+api_key).text)
