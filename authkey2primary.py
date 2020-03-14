@@ -19,7 +19,7 @@ def convert():
     if api_key == "INSERT API KEY HERE":
         print("GET API KEY FROM LINE ID: hertot")
         raise Exception("Wrong API Key")
-    authkey = input("Your Authkey: ") #example page 1 or 2 or 3 or etc
+    authkey = input("Your Authkey: ")
     result = json.loads(requests.get(failOverAPI()+"/authkey2primary?authkey="+authkey+"&auth="+api_key).text)
     print("Android / IOS Token: "+ result["result"]["android_token"])
     print("Android Lite Token: "+ result["result"]["android_lite_token"])
