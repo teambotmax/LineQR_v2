@@ -1,6 +1,6 @@
 import requests, json
 
-### FROM https://danbooru.donmai.us/ ###
+### FROM https://9gag.com/ ###
 
 api_key= "INSERT API KEY HERE"
 
