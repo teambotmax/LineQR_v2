@@ -1,7 +1,5 @@
 import requests, json
 
-### FROM https://danbooru.donmai.us/ ###
-
 api_key= "INSERT API KEY HERE"
 
 ## GET API KEY FROM LINE ID: hertot ###
