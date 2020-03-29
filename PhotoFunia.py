@@ -27,12 +27,12 @@ def photofunia1():
     if category not in category_list:
         raise Exception("Wrong Category")
     url = input("Insert Your line-scdn.net Link: ")
-    result = json.loads(requests.get("https://api.boteater.us/photofunia1?category="+category+"&url="+url+"&auth="+api_key).text)
+    result = json.loads(requests.get(failOverAPI()+"/photofunia1?category="+category+"&url="+url+"&auth="+api_key).text)
     print("Link Image: "+result["result"]["image"])
     print("Animated: "+str(result["result"]["animated"]))
 
 
-### EFECT LIST ONE ###
+### EFECT LIST TWO ###
 def photofunia2():
     category_list = ['christmas-writing', 'beach-sign', 'yacht', 'water-writing', 'bracelet', 'light-graffiti', 'street-sign', 'cemetery-gates', 'plane-banner', 'love-lock', 'fortune-cookie', 'frosty-window-writing', 'einstein', 'lipstick-writing', 'typewriter', 'soup_letters', 'cookies_writing', 'blood_writing', 'wooden_sign', 'sand_writing']
     if api_key == "INSERT API KEY HERE":
@@ -43,7 +43,7 @@ def photofunia2():
     if category not in category_list:
         raise Exception("Wrong Category")
     text = input("Insert Your Text: ")
-    result = json.loads(requests.get("https://api.boteater.us/photofunia2?category="+category+"&text="+text+"&auth="+api_key).text)
+    result = json.loads(requests.get(failOverAPI()+"/photofunia2?category="+category+"&text="+text+"&auth="+api_key).text)
     print("Link Image: "+result["result"]["image"])
 
 
@@ -59,7 +59,7 @@ def photofunia3():
         raise Exception("Wrong Category")
     url1 = input("Insert Your line-scdn.net Link: ")
     url2 = input("Insert Your Second line-scdn.net Link: ")
-    result = json.loads(requests.get("https://api.boteater.us/photofunia3?category="+category+"&url1="+url1+"&url2="+url2+"&auth="+api_key).text)
+    result = json.loads(requests.get(failOverAPI()+"/photofunia3?category="+category+"&url1="+url1+"&url2="+url2+"&auth="+api_key).text)
     print("Link Image: "+result["result"]["image"])
     print("Animated: "+str(result["result"]["animated"]))
 
@@ -75,7 +75,7 @@ def photofunia4():
         raise Exception("Wrong Category")
     url = input("Insert Your line-scdn.net Link: ")
     text = input("Insert Your Text: ")
-    result = json.loads(requests.get("https://api.boteater.us/photofunia4?category="+category+"&text="+text+"&url="+url+"&auth="+api_key).text)
+    result = json.loads(requests.get(failOverAPI()+"/photofunia4?category="+category+"&text="+text+"&url="+url+"&auth="+api_key).text)
     print("Link Image: "+result["result"]["image"])
     print("Animated: "+str(result["result"]["animated"]))
 
